@@ -1,18 +1,31 @@
-﻿namespace Sistema_Bancario.Entities
+﻿using Sistema_Bancario.Exceptions;
+
+namespace Sistema_Bancario.Entities
+
 {
     internal class Client
     {
-        public string Name { get; set; }
-        public int Cpf { get; set; }
-        public string Email { get; set; }
-        public DateTime BirthDate { get; set; }
+        public string Name = "Rodrigo Quaresma";
+        public string Cpf = "123456789-10";
+        public int Senha = 123456;
 
-        public Client(string name, int cpf, string email, DateTime birthDate)
+        public Client()
+        {            
+        }
+
+        public Client(string name, string cpf, int senha) 
         {
             Name = name;
             Cpf = cpf;
-            Email = email;
-            BirthDate = birthDate;
+            Senha = senha;
+        }       
+
+        
+                      
+
+        public override string ToString()
+        {
+            return "Name: " + Name + " - Cpf: " + Cpf;
         }
     }
 

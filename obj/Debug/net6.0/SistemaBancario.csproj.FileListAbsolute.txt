@@ -1,0 +1,15 @@
+C:\Users\rodri\source\repos\Sistema-Bancario\obj\Debug\net6.0\SistemaBancario.csproj.AssemblyReference.cache
+C:\Users\rodri\source\repos\Sistema-Bancario\obj\Debug\net6.0\SistemaBancario.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rodri\source\repos\Sistema-Bancario\obj\Debug\net6.0\SistemaBancario.AssemblyInfoInputs.cache
+C:\Users\rodri\source\repos\Sistema-Bancario\obj\Debug\net6.0\SistemaBancario.AssemblyInfo.cs
+C:\Users\rodri\source\repos\Sistema-Bancario\obj\Debug\net6.0\SistemaBancario.csproj.CoreCompileInputs.cache
+C:\Users\rodri\source\repos\Sistema-Bancario\bin\Debug\net6.0\SistemaBancario.exe
+C:\Users\rodri\source\repos\Sistema-Bancario\bin\Debug\net6.0\SistemaBancario.deps.json
+C:\Users\rodri\source\repos\Sistema-Bancario\bin\Debug\net6.0\SistemaBancario.runtimeconfig.json
+C:\Users\rodri\source\repos\Sistema-Bancario\bin\Debug\net6.0\SistemaBancario.dll
+C:\Users\rodri\source\repos\Sistema-Bancario\bin\Debug\net6.0\SistemaBancario.pdb
+C:\Users\rodri\source\repos\Sistema-Bancario\obj\Debug\net6.0\SistemaBancario.dll
+C:\Users\rodri\source\repos\Sistema-Bancario\obj\Debug\net6.0\refint\SistemaBancario.dll
+C:\Users\rodri\source\repos\Sistema-Bancario\obj\Debug\net6.0\SistemaBancario.pdb
+C:\Users\rodri\source\repos\Sistema-Bancario\obj\Debug\net6.0\SistemaBancario.genruntimeconfig.cache
+C:\Users\rodri\source\repos\Sistema-Bancario\obj\Debug\net6.0\ref\SistemaBancario.dll
