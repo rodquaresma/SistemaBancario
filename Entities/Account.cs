@@ -1,22 +1,28 @@
 ﻿using System;
+using System.Text;
+using System.Globalization;
 
 namespace Sistema_Bancario.Entities
 {
     internal class Account
     {
-        public int Number { get; private set; }
-        public Client Holder { get; set; }
+        public string Id = "10100-1";
+        public Client client;
         public double Balance { get; set; }
-        public double WithdrawLimit { get; set; }
+        public double WithdrawLimit = 500.00;
 
-        public Account(int number, Client holder, double balance)
+        public Account()
         {
-            Number = number;
-            Holder = holder;
-            Balance = balance;
         }
 
-        public virtual void Withdraw(double amount)
+        public Account(string id, double balance, double withdrawLimt)
+        {
+            Id = id;            
+            Balance = balance;
+            WithdrawLimit = withdrawLimt;
+        }
+
+        public void Withdraw(double amount)
         {
             double fee = 5.0;
             if (amount > WithdrawLimit + fee)
@@ -33,6 +39,15 @@ namespace Sistema_Bancario.Entities
         public virtual void Deposit(double amount)
         {
             Balance += amount;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Nome: " + client.Name);
+            sb.AppendLine("Conta: " + Id);
+            sb.AppendLine("Saldo: " + Balance.ToString("F2", CultureInfo.InvariantCulture));            
+            return sb.ToString();
         }
 
     }
