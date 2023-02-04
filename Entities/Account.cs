@@ -6,9 +6,11 @@ namespace Sistema_Bancario.Entities
 {
     internal class Account
     {
+
+        
         public string Id = "10100-1";
-        public Client client;
-        public double Balance { get; set; }
+        public string Holder = "Rodrigo Quaresma";
+        public double Balance = 1000.00;
         public double WithdrawLimit = 500.00;
 
         public Account()
@@ -25,18 +27,18 @@ namespace Sistema_Bancario.Entities
         public void Withdraw(double amount)
         {
             double fee = 5.0;
-            if (amount > WithdrawLimit + fee)
+            if (amount + fee > WithdrawLimit)
             {
-                throw new Exception("O valor excede o limite de saque");
+                throw new ApplicationException("O valor excede o limite de saque");
             }                       
-            if (amount < Balance)
+            if (amount + fee > Balance)
             {
-                throw new Exception("O valor excede o saldo");
+                throw new ApplicationException("O valor excede o saldo");
             }
-            Balance -= amount;
+            Balance -= amount + fee;
         }
 
-        public virtual void Deposit(double amount)
+        public void Deposit(double amount)
         {
             Balance += amount;
         }
@@ -44,7 +46,7 @@ namespace Sistema_Bancario.Entities
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Nome: " + client.Name);
+            sb.AppendLine("Nome: " + Holder);
             sb.AppendLine("Conta: " + Id);
             sb.AppendLine("Saldo: " + Balance.ToString("F2", CultureInfo.InvariantCulture));            
             return sb.ToString();

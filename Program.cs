@@ -26,10 +26,11 @@ namespace Sistema_Bancario
             Console.WriteLine();
             Console.Write("Senha: ");
             int userSenha = int.Parse(Console.ReadLine());
+            Console.Clear();
 
             if (userName == client.Name && userSenha == client.Senha)
             {
-                Console.Clear();
+                opcoes:                
                 Console.WriteLine("Olá, " + client.Name + "! Abaixo estão os dados da sua conta, o que você gostaria de fazer?");
                 Console.WriteLine();
                 Console.WriteLine(acc);
@@ -47,7 +48,8 @@ namespace Sistema_Bancario
                     Console.Clear();
                     Console.WriteLine("**Depósito**");
                     Console.WriteLine();
-                    Console.Write("Qual valor você deseja depositar? ");
+                    Console.WriteLine("Qual valor você deseja depositar?");
+                    Console.WriteLine("Valor: ");
                     double quantia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                     acc.Deposit(quantia);
                     Console.WriteLine("Depósito confirmado!");
@@ -60,9 +62,27 @@ namespace Sistema_Bancario
                     Console.Clear();
                     Console.WriteLine("**Saque**");
                     Console.WriteLine();
-                    Console.Write("Qual valor você deseja sacar? ");
-                    double quantia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                    acc.Deposit(quantia);
+                    Console.WriteLine("Qual valor você deseja sacar? Lembrando que o seu limite de saque é de " + acc.WithdrawLimit.ToString("F2", CultureInfo.InvariantCulture) + ": ");
+                    Console.WriteLine();
+                    Console.Write("Valor: ");
+
+                    try
+                    {
+                        double quantia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                        acc.Withdraw(quantia);
+                    }
+                    catch (ApplicationException e)
+                    {
+                        Console.WriteLine("Erro no saque: " + e.Message);
+                        Console.WriteLine();
+                        Console.WriteLine("Você será redirecionado de volta para as opções: ");
+                        
+                        if (e != null)
+                        {
+                            goto opcoes;
+                        }
+                    }                    
+                    
                     Console.WriteLine("Saque confirmado!");
                     Console.WriteLine();
                     Console.WriteLine("Dados atualizados:");
@@ -71,7 +91,7 @@ namespace Sistema_Bancario
                 else if (c1 == '3')
                 {
                     Console.Clear();
-                    Console.WriteLine("**Saldo**");                    
+                    Console.WriteLine("**Saldo**");
                     Console.WriteLine();
                     Console.WriteLine("Dados atualizados:");
                     Console.WriteLine(acc);
@@ -80,41 +100,15 @@ namespace Sistema_Bancario
                 {
                     Console.Clear();
                     Console.WriteLine("Obrigado e até logo!");
-                }           
-
+                }          
             }
             else
             {
-                Console.Clear();
                 Console.WriteLine("Dados incorretos: Tente mais tarde.");
+
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        }
+        } 
     }
 }
+
+
